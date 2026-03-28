@@ -190,7 +190,7 @@ function HomePage({ setActive }: { setActive: (s: string) => void }) {
       <div className="relative z-10 text-center max-w-4xl mx-auto">
         <div className="animate-fade-in-up">
           <p className="font-golos text-gold/70 text-sm tracking-[0.3em] uppercase mb-4">
-            11 класс · 2015 — 2026
+            2015 — 2026
           </p>
           <h1 className="font-cormorant text-6xl sm:text-8xl font-light text-foreground leading-none mb-2">
             Великий
