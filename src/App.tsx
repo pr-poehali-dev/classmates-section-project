@@ -193,10 +193,10 @@ function HomePage({ setActive }: { setActive: (s: string) => void }) {
             11 класс · 2015 — 2026
           </p>
           <h1 className="font-cormorant text-6xl sm:text-8xl font-light text-foreground leading-none mb-2">
-            Наш
+            Великий
           </h1>
           <h1 className="font-cormorant text-6xl sm:text-8xl font-bold text-gold leading-none mb-8">
-            Класс
+            Г Класс
           </h1>
         </div>
 
