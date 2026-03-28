@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Icon from '@/components/ui/icon';
 
 const GRADUATION_DATE = new Date('2026-06-20T00:00:00');
+const REUNION_DATE = new Date('2036-09-01T00:00:00');
 
 const classmates = [
   {
@@ -172,9 +173,33 @@ function Nav({ active, setActive }: { active: string; setActive: (s: string) => 
   );
 }
 
-function HomePage({ setActive }: { setActive: (s: string) => void }) {
-  const { days, hours, minutes, seconds } = useCountdown(GRADUATION_DATE);
+function CountdownBlock({ label, date, small }: { label: string; date: Date; small?: boolean }) {
+  const { days, hours, minutes, seconds } = useCountdown(date);
+  return (
+    <div className={small ? 'opacity-70' : ''}>
+      <p className="font-golos text-gold/60 text-xs tracking-[0.25em] uppercase mb-4">{label}</p>
+      <div className="flex items-center justify-center gap-2 sm:gap-4">
+        {[
+          { value: days, label: 'дней' },
+          { value: hours, label: 'часов' },
+          { value: minutes, label: 'минут' },
+          { value: seconds, label: 'секунд' },
+        ].map((item, i) => (
+          <div key={i} className="text-center">
+            <div className={`flex items-center justify-center bg-card border border-gold/20 rounded-2xl glow-gold mb-2 ${small ? 'w-12 sm:w-16 h-12 sm:h-16' : 'w-16 sm:w-24 h-16 sm:h-24'}`}>
+              <span className={`font-cormorant font-bold text-gold ${small ? 'text-2xl sm:text-3xl' : 'text-3xl sm:text-5xl'}`}>
+                {String(item.value).padStart(2, '0')}
+              </span>
+            </div>
+            <p className="font-golos text-muted-foreground text-xs uppercase tracking-wider">{item.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
+function HomePage({ setActive }: { setActive: (s: string) => void }) {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center relative px-4 pt-24 pb-16">
       <div
@@ -204,25 +229,13 @@ function HomePage({ setActive }: { setActive: (s: string) => void }) {
           или ге... За 9+2 года так и не определились.
         </p>
 
-        <div className="animate-fade-in-up delay-300 opacity-0 mb-16" style={{ animationFillMode: 'forwards' }}>
-          <p className="font-golos text-gold/60 text-xs tracking-[0.25em] uppercase mb-6">До выпускного осталось</p>
-          <div className="flex items-center justify-center gap-3 sm:gap-6">
-            {[
-              { value: days, label: 'дней' },
-              { value: hours, label: 'часов' },
-              { value: minutes, label: 'минут' },
-              { value: seconds, label: 'секунд' },
-            ].map((item, i) => (
-              <div key={i} className="text-center">
-                <div className="w-16 sm:w-24 h-16 sm:h-24 flex items-center justify-center bg-card border border-gold/20 rounded-2xl glow-gold mb-2">
-                  <span className="font-cormorant text-3xl sm:text-5xl font-bold text-gold">
-                    {String(item.value).padStart(2, '0')}
-                  </span>
-                </div>
-                <p className="font-golos text-muted-foreground text-xs uppercase tracking-wider">{item.label}</p>
-              </div>
-            ))}
-          </div>
+        <div className="animate-fade-in-up delay-300 opacity-0 mb-10 text-center" style={{ animationFillMode: 'forwards' }}>
+          <CountdownBlock label="До выпускного осталось" date={GRADUATION_DATE} />
+        </div>
+
+        <div className="animate-fade-in-up delay-400 opacity-0 mb-16 text-center" style={{ animationFillMode: 'forwards' }}>
+          <div className="h-px w-32 bg-gradient-to-r from-transparent via-gold/20 to-transparent mx-auto mb-8" />
+          <CountdownBlock label="До следующей встречи выпускников осталось" date={REUNION_DATE} small />
         </div>
 
         <div className="animate-fade-in-up delay-500 opacity-0 flex flex-wrap gap-4 justify-center" style={{ animationFillMode: 'forwards' }}>
@@ -232,13 +245,6 @@ function HomePage({ setActive }: { setActive: (s: string) => void }) {
           >
             <Icon name="Users" size={18} />
             Посмотреть профили
-          </button>
-          <button
-            onClick={() => setActive('memories')}
-            className="flex items-center gap-2 border border-gold/40 text-gold font-golos px-8 py-3 rounded-full hover:bg-gold/10 transition-all duration-300"
-          >
-            <Icon name="Heart" size={18} />
-            Воспоминания
           </button>
         </div>
       </div>
