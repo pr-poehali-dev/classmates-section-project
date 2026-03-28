@@ -196,12 +196,12 @@ function HomePage({ setActive }: { setActive: (s: string) => void }) {
             Великий
           </h1>
           <h1 className="font-cormorant text-6xl sm:text-8xl font-bold text-gold leading-none mb-8">
-            Г Класс
+            Гэ класс
           </h1>
         </div>
 
         <p className="animate-fade-in-up delay-200 font-golos text-muted-foreground text-lg max-w-lg mx-auto mb-16 opacity-0" style={{ animationFillMode: 'forwards' }}>
-          11 лет вместе — смеялись, учились, дружили. Этот сайт — подарок каждому из вас.
+          или ге... За 9+2 года так и не определились.
         </p>
 
         <div className="animate-fade-in-up delay-300 opacity-0 mb-16" style={{ animationFillMode: 'forwards' }}>
