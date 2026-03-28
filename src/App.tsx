@@ -226,7 +226,7 @@ function HomePage({ setActive }: { setActive: (s: string) => void }) {
         </div>
 
         <p className="animate-fade-in-up delay-200 font-golos text-muted-foreground text-lg max-w-lg mx-auto mb-16 opacity-0" style={{ animationFillMode: 'forwards' }}>
-          или ге... За 9+2 года так и не определились.
+          или ге... за 9 лет так и не определились.
         </p>
 
         <div className="animate-fade-in-up delay-300 opacity-0 mb-10 text-center" style={{ animationFillMode: 'forwards' }}>
