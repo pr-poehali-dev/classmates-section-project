@@ -263,7 +263,7 @@ function ProfilesPage() {
     <div className="min-h-screen pt-24 pb-16 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 animate-fade-in-up">
-          <p className="font-golos text-gold/60 text-xs tracking-[0.3em] uppercase mb-3">Знакомьтесь</p>
+          <p className="font-golos text-gold/60 text-xs tracking-[0.3em] uppercase mb-3">Итак, давайте по списку</p>
           <h2 className="font-cormorant text-5xl sm:text-7xl font-light text-foreground">
             Наши <span className="text-gold italic">люди</span>
           </h2>
